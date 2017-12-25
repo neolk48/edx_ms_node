@@ -7,7 +7,7 @@ const csvUrl = 'https://prod-edxapp.edx-cdn.org/assets/courseware/v1/07d100219da
 const csvName = 'customer-data.csv';
 const jsonName = 'customer-data.json';
 
-function download(url, fileName = csvName, deleteExisting = true, callback = null) {
+function download(url, fileName, deleteExisting = true, callback = () => console.log('Empty callback')) {
     const output = path.join(__dirname, fileName);
     if (deleteExisting && fs.existsSync(output)) {
         fs.unlinkSync(output);
